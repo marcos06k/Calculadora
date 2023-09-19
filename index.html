@@ -11,11 +11,15 @@
 </head>
 
 <body>
+    <!-- div para controlar com flex box -->
     <div id="div_formulario">
+        <!-- formulário para inserção de dados -->
         <form id="formulario" action="">
+            <!-- inserção do primeiro número -->
             <label for="number_01">First number:</label>
             <input class="tamanho" type="text" id="number_01" required>
 
+            <!-- escolha do operador matemático -->
             <label for="operacao">Mathematical operator</label>
             <select class="tamanho" id="operacao">
                 <option value="0">Escolha a operação</option>
@@ -25,27 +29,36 @@
                 <option value="4">Divisão</option>
             </select>
 
+            <!-- inserção do segundo número -->
             <label for="number_02">Second number:</label>
             <input class="tamanho" type="text" id="number_02">
 
+            <!-- botáo para calcular -->
             <input class="tamanho" type="submit" value="calcular">
-        </form>
+        </form> 
+
+        <!-- div para mostrar o resultado do cálculo -->
         <div id="div_resultado">
 
-        </div>
-    </div>
+        </div> <!-- RESULTADO / -->
+        
+     </div> <!-- FLEXBOX / -->
+
     
 
     <script>
-        //variável
+        // chamando o dados do formulario para fazer o evento do calculo e mostrar o valor
         document.getElementById("formulario").addEventListener("submit", function (event) { 
+            //o evento ficara sem o default normal dele
             event.preventDefault();
 
+            //declarando variaveis
             const num_01 = parseFloat(document.getElementById("number_01").value.replace(',', '.'))
             const num_02 = parseFloat(document.getElementById("number_02").value.replace(',', '.'))
             const escolha = document.getElementById("operacao").value
             let result
 
+            // definindo a opção escolhida pelo usuário
             switch (escolha) {
                 case '1':
                     soma(num_01, num_02)
@@ -62,7 +75,8 @@
                 default:
                     window.alert(escolha + 'está opção não é valida')
             }
-
+        
+            // funções para cada um dos tipos de operações 
             function soma(numero_1, numero_2) {
                 result = numero_1 + numero_2
             }
@@ -82,6 +96,7 @@
                     result = numero_1 / numero_2
                 }
             }
+            // puxando a div resultado e adicionando nela o valor do cálculo
             document.getElementById("div_resultado").innerHTML = "Resultado: " + result;
         })
     </script>
