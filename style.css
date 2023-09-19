@@ -1,0 +1,49 @@
+body{
+    margin: 0;
+    background-color: blue;
+}
+
+#div_formulario{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    background-color: aqua;
+    
+}
+#formulario{
+    display: flex;
+    flex-direction: column;
+    width: 15%;
+    height: 300px;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.tamanho{
+    height: 30px;
+    width: 50%;
+}
+#div_resultado{
+    display: flex;
+    justify-content: center;
+    margin-top: 2%;
+    padding: 1%;
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+h1{    
+    
+    margin-top: 5px;
+    width: 150px;
+    height: 40px;
+    border: 1px solid black;
+    
+}

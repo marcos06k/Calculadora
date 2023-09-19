@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>Aula JS</title>
+
+</head>
+
+<body>
+    <div id="div_formulario">
+        <form id="formulario" action="">
+            <label for="number_01">First number:</label>
+            <input class="tamanho" type="text" id="number_01" required>
+
+            <label for="operacao">Mathematical operator</label>
+            <select class="tamanho" id="operacao">
+                <option value="0">Escolha a operação</option>
+                <option value="1">Soma</option>
+                <option value="2">Subtração</option>
+                <option value="3">Multiplicação</option>
+                <option value="4">Divisão</option>
+            </select>
+
+            <label for="number_02">Second number:</label>
+            <input class="tamanho" type="text" id="number_02">
+
+            <input class="tamanho" type="submit" value="calcular">
+        </form>
+        <div id="div_resultado">
+
+        </div>
+    </div>
+    
+
+    <script>
+        //variável
+        document.getElementById("formulario").addEventListener("submit", function (event) { 
+            event.preventDefault();
+
+            const num_01 = parseFloat(document.getElementById("number_01").value.replace(',', '.'))
+            const num_02 = parseFloat(document.getElementById("number_02").value.replace(',', '.'))
+            const escolha = document.getElementById("operacao").value
+            let result
+
+            switch (escolha) {
+                case '1':
+                    soma(num_01, num_02)
+                    break
+                case '2':
+                    menos(num_01, num_02)
+                    break
+                case '3':
+                    vezes(num_01, num_02)
+                    break
+                case '4':
+                    dividir(num_01, num_02)
+                    break
+                default:
+                    window.alert(escolha + 'está opção não é valida')
+            }
+
+            function soma(numero_1, numero_2) {
+                result = numero_1 + numero_2
+            }
+
+            function menos(numero_1, numero_2) {
+                result = numero_1 - numero_2
+            }
+
+            function vezes(numero_1, numero_2) {
+                result = numero_1 * numero_2
+            }
+
+            function dividir(numero_1, numero_2) {
+                if (numero_2 == 0) {
+                    window.alert('O segundo numero é 0 e então nao pode ser dividido')
+                } else {
+                    result = numero_1 / numero_2
+                }
+            }
+            document.getElementById("div_resultado").innerHTML = "Resultado: " + result;
+        })
+    </script>
+</body>
+
+</html>
